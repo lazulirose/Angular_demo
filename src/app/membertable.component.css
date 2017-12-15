@@ -1,0 +1,19 @@
+.name {
+	background-color: khaki;
+	color: #000;
+}
+
+.prof {
+	background: #000;
+	color: #fff;
+}
+
+.name-selected {
+	background: #000;
+	color: #fff;
+}
+
+.prof-selected {
+	background: #fff;
+	color: #000;
+}

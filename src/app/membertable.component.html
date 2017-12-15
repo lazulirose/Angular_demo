@@ -1,0 +1,7 @@
+<h2>demo</h2>
+<table>
+	<tr *ngFor="let member of members" (click)="onSelect(member)">
+		<td class="name" [class.name-selected]="isSelected(member)>=0"><b>{{member.name}}</b></td>
+		<td class="prof" [class.prof-selected]="isSelected(member)>=0">{{member.prof}}</td>
+	</tr>
+</table>
