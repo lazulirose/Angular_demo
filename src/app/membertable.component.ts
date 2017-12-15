@@ -9,11 +9,12 @@ import { OnInit } from '@angular/core';
     styleUrls: ['./membertable.component.css']
 })
 
-export class MembertableComponent implements OnInit{
-    members:Member[];
+export class MembertableComponent implements OnInit {
+    members: Member[];
     selectedMembers: Member[];
     overflow: boolean;
     whoisselected: string;
+    editingMember: Member;
 
     constructor(private mservice: MembersService) {
         this.selectedMembers = new Array()
@@ -22,15 +23,15 @@ export class MembertableComponent implements OnInit{
 
     };
 
-     ngOnInit(): void {
+    ngOnInit(): void {
         this.getMembers();
     }
 
-    getMembers() :void{
-        this.mservice.getMembers().then(getMembers=>this.members=getMembers);
+    getMembers(): void {
+        this.mservice.getMembers().then(getMembers => this.members = getMembers);
     }
 
-    onSelect(member: Member) :void{
+    onSelect(member: Member): void {
         let selectedindex = this.isSelected(member);
         if (selectedindex >= 0) {
             this.selectedMembers.splice(selectedindex, 1);
@@ -62,8 +63,30 @@ export class MembertableComponent implements OnInit{
         return whois.substr(0, whois.length - 2) + "が選ばれました";
     }
 
-    vote():void{
-        this.whoisselected="ご投票ありがとうございました";
-        this.selectedMembers=[];
+    vote(): void {
+        for (let selectedMember of this.selectedMembers) {
+            selectedMember.voted++;
+        }
+        this.mservice.addVotes(this.selectedMembers)
+            .then((response) => {
+                this.whoisselected = response;
+                this.selectedMembers = [];
+            });
+    }
+
+    editProfile(themember: Member): void {
+        this.editingMember = themember;
+    }
+
+    isEditing(themember: Member): boolean {
+        return this.editingMember == themember;
+    }
+    cancelEditing(): void {
+        this.editingMember = null;
+    }
+
+    updateProfile(): void {
+        this.mservice.updateMember(this.editingMember)
+            .then(() => this.editingMember = null);
     }
 }

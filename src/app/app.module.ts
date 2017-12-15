@@ -12,9 +12,10 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryMemberdataService } from './in-memory-memberdata.service';
 
 import {HttpModule} from '@angular/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule,HttpModule,
+  imports: [BrowserModule, AppRoutingModule,HttpModule,FormsModule,
     InMemoryWebApiModule.forRoot(InMemoryMemberdataService)
   ],
   declarations: [AppComponent, MembertableComponent, PollComponent],

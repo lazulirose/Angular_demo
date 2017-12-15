@@ -1,14 +1,12 @@
-td {
-	font-size: large;
-	margin: 4px;
-	padding: 4px;
+td{
+    font-size: large;
+    margin:4px;
+    padding:4px;
 }
-
-td.name {
-	color: maroon;
+td.name{
+    color:maroon;
 }
-
-td.voted {
-	background-color: maroon;
-	color: khaki;
-}
+td.voted{
+    background-color: maroon;
+    color:khaki;
+} 

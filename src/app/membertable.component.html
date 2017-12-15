@@ -2,13 +2,34 @@
 <div *ngIf="selectedMembers.length == 4">
     <button class="vote" (click)="vote()">投票する</button></div>
 <div>
-<table>
-    <tr *ngFor="let member of members" (click)="onSelect(member)" >
-         <td class = "name" [class.name-selected]="isSelected(member)>=0">
-              <b>{{member.name}}</b></td>
-          <td class = "prof"[class.prof-selected]="isSelected(member)>=0">
-              {{member.prof}}<td>
-    </tr>
-</table>
-<div *ngIf = "overflow" class = "error">選択は4名までです</div>
-<div>{{whoisselected}}</div> 
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr *ngFor="let member of members" (click)="onSelect(member)">
+                        <td class="name" [class.name-selected]="isSelected(member)>=0">
+                            <b>{{member.name}}</b></td>
+                        <td class="prof" [class.prof-selected]="isSelected(member)>=0">
+                            {{member.prof}}
+                            <td>
+                    </tr>
+                </table>
+                </td>
+                <td>
+                    <table>
+                        <tr *ngFor="let member of members">
+                            <td class="edit-prof" [class.now-editing]="isEditing(member)" (click)="editProfile(member)">?</td>
+                        </tr>
+                    </table>
+                </td>
+        </tr>
+    </table>
+    <div *ngIf="overflow" class="error">選択は4名までです</div>
+    <div>{{whoisselected}}</div>
+    <hr>
+    <div *ngIf="editingMember != null">
+        <p>{{editingMember.name}}さんのプロファイルを変更</p>
+        <input [(ngModel)] = "editingMember.prof">
+        <button (click)="updateProfile()">変更</button>
+        <button (click)="cancelEditing()">中止</button>
+    </div>

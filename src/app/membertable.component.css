@@ -28,3 +28,14 @@
     padding: 4px 10px;
     font-size: larger;
 }
+.edit-prof{
+    color:green;
+    background-color: whitesmoke;
+}
+.now-editing{
+    color:orange;
+    background-color: whitesmoke;
+}
+input{
+    width: 500px;
+}
