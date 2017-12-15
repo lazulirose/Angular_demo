@@ -1,9 +1,14 @@
-<h2>demo</h2>
+<h2>被選挙人名簿</h2>
+<div *ngIf="selectedMembers.length == 4">
+    <button class="vote" (click)="vote()">投票する</button></div>
+<div>
 <table>
-	<tr *ngFor="let member of members" (click)="onSelect(member)">
-		<td class="name" [class.name-selected]="isSelected(member)>=0"><b>{{member.name}}</b></td>
-		<td class="prof" [class.prof-selected]="isSelected(member)>=0">{{member.prof}}</td>
-	</tr>
+    <tr *ngFor="let member of members" (click)="onSelect(member)" >
+         <td class = "name" [class.name-selected]="isSelected(member)>=0">
+              <b>{{member.name}}</b></td>
+          <td class = "prof"[class.prof-selected]="isSelected(member)>=0">
+              {{member.prof}}<td>
+    </tr>
 </table>
-<div class="error" *ngIf="overflow">選択は４名までです</div>
-<div class="">{{whoisselected}}</div>
+<div *ngIf = "overflow" class = "error">選択は4名までです</div>
+<div>{{whoisselected}}</div> 

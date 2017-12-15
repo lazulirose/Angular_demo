@@ -1,24 +1,30 @@
-.name {
-	background-color: khaki;
-	color: #000;
+.name{
+    background-color: khaki;
 }
 
-.prof {
-	background: #000;
-	color: #fff;
+.name-selected{
+    background-color: maroon;
+    color: beige;
 }
 
-.name-selected {
-	background: #000;
-	color: #fff;
+.prof{
+    background-color: beige;
+} 
+
+.prof-selected{
+    background-color: khaki;
+    color:maroon;
 }
 
-.prof-selected {
-	background: #fff;
-	color: #000;
-}
+.error{
+    background-color:red;
+    color: white;
+} 
 
-.error {
-	background: red;
-	color: #fff;
+.vote{
+    margin-top:20px;
+    background-color: green;
+    color:beige;
+    padding: 4px 10px;
+    font-size: larger;
 }

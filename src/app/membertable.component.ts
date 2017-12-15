@@ -61,4 +61,9 @@ export class MembertableComponent implements OnInit{
         }
         return whois.substr(0, whois.length - 2) + "が選ばれました";
     }
+
+    vote():void{
+        this.whoisselected="ご投票ありがとうございました";
+        this.selectedMembers=[];
+    }
 }
