@@ -5,3 +5,5 @@
 		<td class="prof" [class.prof-selected]="isSelected(member)>=0">{{member.prof}}</td>
 	</tr>
 </table>
+<div class="error" *ngIf="overflow">選択は４名までです</div>
+<div class="">{{whoisselected}}</div>

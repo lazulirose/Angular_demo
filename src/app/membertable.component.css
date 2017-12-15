@@ -17,3 +17,8 @@
 	background: #fff;
 	color: #000;
 }
+
+.error {
+	background: red;
+	color: #fff;
+}
